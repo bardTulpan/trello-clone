@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fb29c1d9-5b81-42ea-a0e3-47ec9fb596ba" name="Changes" comment="refactor and clean up code">
+      <change beforePath="$PROJECT_DIR$/task-tracker" beforeDir="false" afterPath="$PROJECT_DIR$/task-tracker" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/BackendApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/config/AsyncConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/config/EmailSmtpProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/config/JwtProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/config/KafkaTopicsProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/config/MailConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/config/OpenApiConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/config/PaginationProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/controller/TaskController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/controller/swagerInterface/AuthApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/controller/swagerInterface/TaskApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/dto/CreateTaskRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/dto/EmailTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/dto/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/dto/RegistrationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/dto/TaskResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/dto/UpdateTaskRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/dto/UserResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/entity/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/entity/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/exception/AccessDeniedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/exception/AlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/exception/MailSendingException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/handler/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/mapper/TaskMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/repository/TaskRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/security/ApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/security/CustomUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/security/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/security/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/service/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/service/MailProducerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/java/backend/service/TaskService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/backend/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/docker-compose.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/java/emailSender/EmailSenderApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/java/emailSender/config/EmailProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/java/emailSender/config/EmailSmtpProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/java/emailSender/config/MailConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/java/emailSender/dto/EmailTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/java/emailSender/service/EmailConsumerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/java/emailSender/service/EmailSenderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/email-sender/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/SchedulerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/config/KafkaTopicConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/config/NotificationProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/config/SchedulerProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/dto/EmailTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/dto/UserTaskSummaryDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/mapper/UserTaskSummaryRowMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/repository/MainRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/service/MessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/java/scheduler/service/SchedulerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-tracker/scheduler/src/main/resources/application.properties" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3AcdcKiKY8ceOJLSD0Eimc6y2MB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MailjetAuthTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "Spring Boot.BackendApplication (1).executor": "Run",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "Spring Boot.EmailSenderApplication (1).executor": "Run",
+    "Spring Boot.EmailSenderApplication.executor": "Run",
+    "Spring Boot.SchedulerApplication.executor": "Run",
+    "Spring Boot.TaskTrackerApplication.executor": "Run",
+    "git-widget-placeholder": "new-pr-clean",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/email-sender/src/main/resources" />
+      <recent name="$PROJECT_DIR$/scheduler/src/main/resources" />
+      <recent name="$PROJECT_DIR$/backend/src/main/resources" />
+      <recent name="$PROJECT_DIR$/backend/src/main/java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="BackendApplication" value="FAILED" />
+              <entry key="BackendApplication (1)" value="STOPPED" />
+              <entry key="EmailSenderApplication" value="FAILED" />
+              <entry key="EmailSenderApplication (1)" value="STOPPED" />
+              <entry key="SchedulerApplication" value="STOPPED" />
+              <entry key="TaskTrackerApplication" value="FAILED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BackendApplication (1)">
+    <configuration name="MailjetAuthTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="emailSender.service.MailjetAuthTest" />
+      <module name="email-sender" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="emailSender.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BackendApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="backend.BackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="BackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailSenderApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="email-sender" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="emailSender.EmailSenderApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="emailSender.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailSenderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="email-sender" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="emailSender.dto.EmailSenderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SchedulerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="scheduler" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="scheduler.SchedulerApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="scheduler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskTrackerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="task-tracker" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="bard.tulpan.tasktracker.TaskTrackerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.EmailSenderApplication (1)" />
+        <item itemvalue="Spring Boot.EmailSenderApplication" />
+        <item itemvalue="Spring Boot.SchedulerApplication" />
+        <item itemvalue="Spring Boot.BackendApplication" />
+        <item itemvalue="Application.MailjetAuthTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fb29c1d9-5b81-42ea-a0e3-47ec9fb596ba" name="Changes" comment="" />
+      <created>1772895873663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772895873663</updated>
+      <workItem from="1772895874728" duration="3617000" />
+      <workItem from="1772899508777" duration="27572000" />
+      <workItem from="1773461317117" duration="34915000" />
+      <workItem from="1773596151507" duration="28100000" />
+      <workItem from="1773833061442" duration="26635000" />
+      <workItem from="1774246896907" duration="1797000" />
+      <workItem from="1774488874889" duration="6268000" />
+      <workItem from="1774675763679" duration="13188000" />
+    </task>
+    <task id="LOCAL-00001" summary="refactor kafka settings">
+      <option name="closed" value="true" />
+      <created>1774754598417</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774754598417</updated>
+    </task>
+    <task id="LOCAL-00002" summary="refactor and clean up code">
+      <option name="closed" value="true" />
+      <created>1774757755868</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774757755868</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor kafka settings" />
+    <MESSAGE value="refactor emailsender and backend services" />
+    <MESSAGE value="refactor and uptimize imports" />
+    <MESSAGE value="refactor and clean up code" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor and clean up code" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
