@@ -1,0 +1,16 @@
+package scheduler.config;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@Getter
+@Setter
+@Configuration
+@ConfigurationProperties(prefix = "scheduler")
+public class SchedulerProperties {
+    private String cronExpression;
+    private String kafkaTopic;
+    private int maxTitlesInEmail = 5;
+}
