@@ -23,7 +23,6 @@ public class OpenApiConfig {
                                         .bearerFormat("JWT")
                         )
                 )
-                // добавляем требование безопасности глобально
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"));
     }
 }

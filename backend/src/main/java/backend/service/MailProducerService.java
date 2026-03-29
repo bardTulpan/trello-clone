@@ -1,5 +1,6 @@
 package backend.service;
 
+import backend.config.KafkaTopicsProperties;
 import backend.dto.EmailTask;
 import backend.exception.MailSendingException;
 import lombok.AllArgsConstructor;
@@ -14,11 +15,12 @@ import org.springframework.stereotype.Service;
 public class MailProducerService {
 
     private final KafkaTemplate<String, EmailTask> kafkaTemplate;
+    private final KafkaTopicsProperties  kafkaTopicsProperties;
 
     @Async
     public void sendWelcomeMail(String email) {
         try {
-            kafkaTemplate.send("EMAIL_SENDING_TASKS", new EmailTask(email, "Welcome", "<h1>Welcome!!!</h1>"))
+            kafkaTemplate.send(kafkaTopicsProperties.getEmailSendingTasks(), new EmailTask(email, "Welcome", "<h1>Welcome!!!</h1>"))
                             .whenComplete((emailTask, throwable) -> {
                                 if (throwable != null) {
                                     log.error("Failed to send welcome email to Kafka for: {}", email, throwable);
