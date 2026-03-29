@@ -9,18 +9,19 @@ import java.util.Properties;
 
 @Configuration
 public class MailConfig {
-    @Bean
-    public JavaMailSender javaMailSender() {
-        JavaMailSenderImpl sender = new JavaMailSenderImpl();
-        sender.setHost("smtp-relay.brevo.com");
-        sender.setPort(587);
-        sender.setUsername("a54ddb001@smtp-brevo.com");
-        sender.setPassword("hA9RI3zCUNry4v8W");
 
-        Properties props = sender.getJavaMailProperties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.starttls.required", "true");
+    @Bean
+    public JavaMailSender javaMailSender(EmailSmtpProperties props) {
+        JavaMailSenderImpl sender = new JavaMailSenderImpl();
+        sender.setHost(props.getHost());
+        sender.setPort(props.getPort());
+        sender.setUsername(props.getUsername());
+        sender.setPassword(props.getPassword());
+
+        Properties javaMailProps = sender.getJavaMailProperties();
+        javaMailProps.put("mail.smtp.auth", props.isAuth());
+        javaMailProps.put("mail.smtp.starttls.enable", props.isStarttls());
+        javaMailProps.put("mail.smtp.starttls.required", props.isStarttls());
 
         return sender;
     }

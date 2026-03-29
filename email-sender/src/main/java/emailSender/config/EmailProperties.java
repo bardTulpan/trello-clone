@@ -12,4 +12,5 @@ import org.springframework.context.annotation.Configuration;
 public class EmailProperties {
     private String address;
     private String name;
+    private String htmlTemplate;
 }

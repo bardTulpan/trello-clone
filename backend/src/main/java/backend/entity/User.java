@@ -50,7 +50,7 @@ public class User implements UserDetails {
     private Instant updatedAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Task> tasks = new  ArrayList<>();
+    private List<Task> tasks = new ArrayList<>();
 
     @Override
     public String getUsername() {

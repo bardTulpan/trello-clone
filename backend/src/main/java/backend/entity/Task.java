@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
@@ -28,6 +27,7 @@ public class Task {
     private UUID id;
     @Column(nullable = false)
     private String title;
+    @Column(length = 1000)
     private String description;
     @UpdateTimestamp
     private Instant updatedAt = Instant.now();

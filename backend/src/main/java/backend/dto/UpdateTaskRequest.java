@@ -3,7 +3,6 @@ package backend.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,12 +19,3 @@ public class UpdateTaskRequest {
     @Size(max = 5000, message = "Description must be less than 5000 characters")
     private String description;
 }
-
-//Пофиксить false -> true Done
-//докерфайл java  -> Done
-//.env           Done
-//миграцию сделать, обавить поле
-
-
-//сервак сделать + ci/cd
-//проверка валидности почты

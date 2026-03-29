@@ -8,7 +8,6 @@ import backend.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,7 +26,6 @@ public class AuthController implements AuthApi {
 
     @GetMapping("/user")
     public UserResponse getUser(@AuthenticationPrincipal User user) {
-        System.out.println("Current user authorities: " + SecurityContextHolder.getContext().getAuthentication().getAuthorities());
         return new UserResponse(user.getId(), user.getEmail());
     }
 

@@ -8,13 +8,13 @@ import backend.entity.Task;
 import backend.entity.User;
 import backend.exception.AccessDeniedException;
 import backend.exception.NotFoundException;
-import lombok.AllArgsConstructor;
 import backend.mapper.TaskMapper;
+import backend.repository.TaskRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import backend.repository.TaskRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;

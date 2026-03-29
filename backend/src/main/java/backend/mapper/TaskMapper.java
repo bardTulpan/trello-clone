@@ -7,11 +7,11 @@ import backend.entity.Task;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.springframework.data.domain.Page;
 
 @Mapper(componentModel = "spring")
 public interface TaskMapper {
     Task toEntity(UpdateTaskRequest taskRequest);
+
     Task toEntity(CreateTaskRequest taskRequest);
 
     @Mapping(source = "completed", target = "completed")

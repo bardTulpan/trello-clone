@@ -4,13 +4,14 @@ import emailSender.config.EmailProperties;
 import emailSender.dto.EmailTask;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import java.io.UnsupportedEncodingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import java.io.UnsupportedEncodingException;
 
 @Log4j2
 @Service
@@ -28,7 +29,9 @@ public class EmailSenderService {
             helper.setFrom(emailProperties.getAddress(), emailProperties.getName());
             helper.setTo(task.getRecipient());
             helper.setSubject(task.getTitle());
-            helper.setText("<h1>Task Notification</h1><p>" + task.getBody() + "</p>", true);
+
+            String html = emailProperties.getHtmlTemplate().formatted(task.getBody());
+            helper.setText(html, true);
 
             mailSender.send(message);
             log.info("Email sent successfully to: {}", task.getRecipient());

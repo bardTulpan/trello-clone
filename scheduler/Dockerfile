@@ -4,7 +4,6 @@ WORKDIR /app
 COPY ../ .
 RUN ./mvnw -q -DskipTests package
 
-# -------------------------
 
 FROM eclipse-temurin:21-jre
 WORKDIR /app

@@ -2,6 +2,7 @@ package scheduler.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import scheduler.config.NotificationProperties;
 import scheduler.config.SchedulerProperties;
 import scheduler.dto.EmailTask;
 import scheduler.dto.UserTaskSummaryDto;
@@ -11,51 +12,60 @@ import scheduler.dto.UserTaskSummaryDto;
 public class MessageService {
 
     private final SchedulerProperties schedulerProperties;
+    private final NotificationProperties notificationProperties;
 
     public EmailTask createEmailTask(UserTaskSummaryDto task) {
+        EmailTask emailTask = new EmailTask();
+        emailTask.setRecipient(task.getEmail());
+        emailTask.setTitle(selectTitle(task));
+        emailTask.setBody(buildBody(task));
+
+        return emailTask;
+    }
+
+    private String selectTitle(UserTaskSummaryDto task) {
+        if (task.getFinishedCount() > 0 && task.getUnfinishedCount() > 0) {
+            return notificationProperties.getTitleMixed();
+        } else if (task.getFinishedCount() > 0) {
+            return notificationProperties.getTitleFinished();
+        } else if (task.getUnfinishedCount() > 0) {
+            return notificationProperties.getTitleUnfinished();
+        }
+
+        return notificationProperties.getTitleMixed();
+    }
+
+    private String buildBody(UserTaskSummaryDto task) {
         StringBuilder body = new StringBuilder();
         int maxTitles = schedulerProperties.getMaxTitlesInEmail();
 
-        EmailTask emailTask = new EmailTask();
-        emailTask.setRecipient(task.getEmail());
-        emailTask.setTitle(defineTitle(task));
-
         if (task.getFinishedCount() > 0) {
-            body.append("Tasks completed today: ")
+            body.append(notificationProperties.getFinishedHeader())
+                    .append(" ")
                     .append(task.getFinishedCount())
                     .append("\n");
 
             task.getFinishedTitles().stream()
                     .limit(maxTitles)
-                    .forEach(title -> body.append("- ").append(title).append("\n"));
+                    .forEach(title -> body.append(notificationProperties.getBullet())
+                            .append(title)
+                            .append("\n"));
 
             body.append("\n");
         }
 
         if (task.getUnfinishedCount() > 0) {
-            body.append("Pending tasks remaining: ")
+            body.append(notificationProperties.getUnfinishedHeader())
+                    .append(" ")
                     .append(task.getUnfinishedCount())
                     .append("\n");
 
             task.getUnfinishedTitles().stream()
                     .limit(maxTitles)
-                    .forEach(title -> body.append("- ").append(title).append("\n"));
+                    .forEach(title -> body.append(notificationProperties.getBullet())
+                            .append(title)
+                            .append("\n"));
         }
-
-        emailTask.setBody(body.toString());
-
-        return emailTask;
-    }
-
-    private String defineTitle(UserTaskSummaryDto task) {
-        if (task.getFinishedCount() > 0 && task.getUnfinishedCount() > 0) {
-            return "Daily Task Summary";
-        } else if (task.getFinishedCount() > 0) {
-            return "Tasks Completed Today";
-        } else if (task.getUnfinishedCount() > 0) {
-            return "Pending Tasks Notification";
-        } else {
-            return "Daily Task Summary";
-        }
+        return body.toString();
     }
 }

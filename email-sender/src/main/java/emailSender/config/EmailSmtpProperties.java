@@ -8,8 +8,12 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(prefix = "kafka.consumer")
-public class KafkaProperties {
-    private String topic;
-    private String groupId;
+@ConfigurationProperties(prefix = "smtp")
+public class EmailSmtpProperties {
+    private String host;
+    private int port;
+    private String username;
+    private String password;
+    private boolean auth;
+    private boolean starttls;
 }

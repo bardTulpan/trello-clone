@@ -1,6 +1,5 @@
 package emailSender.service;
 
-import emailSender.config.KafkaProperties;
 import emailSender.dto.EmailTask;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -14,12 +13,11 @@ import org.springframework.stereotype.Service;
 public class EmailConsumerService {
 
     private final EmailSenderService emailSenderService;
-    private final KafkaProperties kafkaProperties;
 
     @KafkaListener(topics = "${kafka.consumer.topic}", groupId = "${kafka.consumer.group-id}")
     public void processEmail(ConsumerRecord<String, EmailTask> record) {
         EmailTask task = record.value();
-        log.info(task.toString());
+        log.debug("Received task from Kafka: {}", task);
         emailSenderService.sendTask(task);
         log.info("Finished processEmail");
     }

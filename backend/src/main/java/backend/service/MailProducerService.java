@@ -15,19 +15,19 @@ import org.springframework.stereotype.Service;
 public class MailProducerService {
 
     private final KafkaTemplate<String, EmailTask> kafkaTemplate;
-    private final KafkaTopicsProperties  kafkaTopicsProperties;
+    private final KafkaTopicsProperties kafkaTopicsProperties;
 
     @Async
     public void sendWelcomeMail(String email) {
         try {
             kafkaTemplate.send(kafkaTopicsProperties.getEmailSendingTasks(), new EmailTask(email, "Welcome", "<h1>Welcome!!!</h1>"))
-                            .whenComplete((emailTask, throwable) -> {
-                                if (throwable != null) {
-                                    log.error("Failed to send welcome email to Kafka for: {}", email, throwable);
-                                } else {
-                                    log.info("Welcome email task sent successfully for: {}", email);
-                                }
-                            });
+                    .whenComplete((emailTask, throwable) -> {
+                        if (throwable != null) {
+                            log.error("Failed to send welcome email to Kafka for: {}", email, throwable);
+                        } else {
+                            log.info("Welcome email task sent successfully for: {}", email);
+                        }
+                    });
             log.info("Welcome email task sent to Kafka for: {}", email);
         } catch (Exception e) {
             log.error("Failed to send message to Kafka for email: {}", email, e);

@@ -30,7 +30,17 @@ public class SchedulerService {
         for (UserTaskSummaryDto task : tasks) {
             EmailTask emailTask = messageService.createEmailTask(task);
             log.info("Prepared email task: {}", emailTask);
-            kafkaTemplate.send(schedulerProperties.getKafkaTopic(), emailTask);
+
+            kafkaTemplate.send(schedulerProperties.getKafkaTopic(), emailTask)
+                    .whenComplete((result, ex) -> {
+                        if (ex != null) {
+                            log.error("Kafka send FAILED for {}: {}", emailTask.getRecipient(), ex.getMessage(), ex);
+                        } else {
+                            log.info("Kafka send OK for {} to partition: {}",
+                                    emailTask.getRecipient(),
+                                    result.getRecordMetadata().partition());
+                        }
+                    });
         }
 
         log.info("Completed daily task processing.");
