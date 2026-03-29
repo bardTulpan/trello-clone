@@ -1,0 +1,4 @@
+/home/bard/coding/proj/task-tracker/email-sender/src/main/java/emailSender/EmailSenderApplication.java
+/home/bard/coding/proj/task-tracker/email-sender/src/main/java/emailSender/dto/EmailTask.java
+/home/bard/coding/proj/task-tracker/email-sender/src/main/java/emailSender/service/EmailConsumerService.java
+/home/bard/coding/proj/task-tracker/email-sender/src/main/java/emailSender/service/EmailSenderService.java
